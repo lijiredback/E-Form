@@ -6,7 +6,9 @@
     </div>-->
     <e-form :model="ruleForm" :rules="rules" ref="loginForm">
       <e-form-item label="用户名" prop="name">
-        <e-input v-model="ruleForm.name"></e-input>
+        <div>
+          <e-input v-model="ruleForm.name"></e-input>
+        </div>
       </e-form-item>
 
       <e-form-item label="密码" prop="pwd">
@@ -14,7 +16,7 @@
       </e-form-item>
 
       <e-form-item>
-        <input type="submit" @click="submitForm('loginForm')" value="提交">
+        <input type="submit" @click="submitForm()" value="提交">
       </e-form-item>
 
       <div>{{ ruleForm }}</div>

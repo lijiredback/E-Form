@@ -6,19 +6,25 @@
 
 <script>
     export default {
+        name: 'EForm',
         props: {
             model: { type: Object, required: true },
             rules: { type: Object }
         },
         provide() {
           return {
-              form: this, // provide this component's instance
+              eForm: this, // provide this component's instance
           }  
+        },
+        data() {
+            return {
+                fileds: [],
+            }
         },
         created() {
             // 缓存需要校验的表单项
             this.fileds = [];
-            this.$on('formItemAdd', item => this.fileds.push(item));
+            this.$on('addFiled', filed => this.fileds.push(filed));
         },
         methods: {
             async validate(cb) {
